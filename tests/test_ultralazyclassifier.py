@@ -1,3 +1,4 @@
+import json
 import os
 
 from sklearn.datasets import make_classification
@@ -23,6 +24,37 @@ def test_simple_pipeline_no_cv():
     ulc = UltraLazyClassifier(
         classifiers,
         source_hp_path="./resources/ultralazy_hp_tests.json",
+        cross_validation=False,
+        logs_path="./logs",
+    )
+
+    # Generate a synthetic binary classification dataset
+    x, y = make_classification(
+        n_samples=100, n_features=20, n_informative=2, n_redundant=10, random_state=42
+    )
+    x_train, x_test, y_train, y_test = train_test_split(x, y)
+
+    _ = ulc.fit(x_train, x_test, y_train, y_test)
+
+
+def test_simple_pipeline_cv():
+    """Testing a basic UltraLazyClassifier Pipeline"""
+
+    classifiers = HyperparametersReader.get_estimators("classifier")
+
+    classifiers = filter_estimators_by_keys(
+        keys=["XGBClassifier", "LGBMClassifier"], estimators=classifiers
+    )
+
+    if not os.path.exists("./logs"):
+        os.makedirs("./logs")
+
+    with open("./resources/ultralazy_hp_tests.json", "r", encoding="utf-8") as f:
+        hp_dict = json.load(f)
+
+    ulc = UltraLazyClassifier(
+        classifiers,
+        source_hp_dict=hp_dict,
         cross_validation=True,
         logs_path="./logs",
     )

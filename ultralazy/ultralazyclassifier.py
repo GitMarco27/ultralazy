@@ -51,13 +51,21 @@ class UltraLazyClassifier:
         cv: int = 5,
         source_hp_path: Optional[str] = None,
         logs_path: Optional[str] = None,
+        source_hp_dict: Optional[dict] = None,
     ):
 
         # Assertions
-        if cross_validation and source_hp_path is None:
+        if source_hp_path is not None and source_hp_dict is not None:
+            raise ValueError("Both source_hp_path and source_hp_dict are provided."
+                             "You must provide only"
+                             "one of them.")
+
+
+        if cross_validation and (source_hp_path is None and source_hp_dict is None):
             raise ValueError(
-                "When cross_validation is set to True, source_hp_path must be provided."
+                "When cross_validation is set to True, source_hp_path or source_hp_dict must be provided."
             )
+
 
         if logs_path is None:
             print("Warning: logs path is not provided. No logs will be written to file")
@@ -81,6 +89,9 @@ class UltraLazyClassifier:
         if source_hp_path is not None:
             with open(source_hp_path, "r", encoding="utf-8") as f:
                 self.hyperparameters = json.load(f)
+
+        if source_hp_dict is not None:
+            self.hyperparameters = source_hp_dict
 
     def get_run_path(self) -> str | None:
         """Get actual run logging path
