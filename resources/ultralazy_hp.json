@@ -1,0 +1,1407 @@
+{
+    "ARDRegression": {
+        "max_iter": [
+            100,
+            200,
+            300,
+            400,
+            500
+        ],
+        "tol": [
+            0.001,
+            0.0001,
+            1e-05
+        ],
+        "alpha_1": [
+            1e-06,
+            1e-05,
+            1e-07
+        ],
+        "alpha_2": [
+            1e-06,
+            1e-05,
+            1e-07
+        ],
+        "lambda_1": [
+            1e-06,
+            1e-05,
+            1e-07
+        ],
+        "lambda_2": [
+            1e-06,
+            1e-05,
+            1e-07
+        ],
+        "compute_score": [
+            true,
+            false
+        ],
+        "threshold_lambda": [
+            1000.0,
+            10000.0,
+            100000.0
+        ],
+        "fit_intercept": [
+            true,
+            false
+        ]
+    },
+    "AdaBoostClassifier": {
+        "n_estimators": [
+            50,
+            100,
+            200
+        ],
+        "learning_rate": [
+            0.01,
+            0.1,
+            1.0
+        ],
+        "algorithm": [
+            "SAMME",
+            "SAMME.R"
+        ]
+    },
+    "BaggingClassifier": {
+        "n_estimators": [
+            10,
+            50,
+            100,
+            200
+        ],
+        "max_samples": [
+            0.5,
+            0.7,
+            1.0
+        ],
+        "max_features": [
+            0.5,
+            0.7,
+            1.0
+        ],
+        "bootstrap": [
+            true,
+            false
+        ],
+        "bootstrap_features": [
+            true,
+            false
+        ],
+        "oob_score": [
+            true,
+            false
+        ]
+    },
+    "BernoulliNB": {
+        "alpha": [
+            0.0,
+            0.5,
+            1.0,
+            2.0
+        ],
+        "binarize": [
+            null,
+            0.0,
+            0.5,
+            1.0
+        ],
+        "fit_prior": [
+            true,
+            false
+        ]
+    },
+    "CalibratedClassifierCV": {
+        "cv": [
+            3,
+            5,
+            7,
+            10
+        ],
+        "method": [
+            "sigmoid",
+            "isotonic"
+        ],
+        "ensemble": [
+            true,
+            false
+        ]
+    },
+    "CategoricalNB": {
+        "alpha": [
+            0.1,
+            0.5,
+            1.0,
+            2.0
+        ],
+        "fit_prior": [
+            true,
+            false
+        ],
+        "min_categories": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
+    },
+    "ClassifierChain": {
+        "base_estimator": [
+            "LogisticRegression()",
+            "DecisionTreeClassifier()"
+        ],
+        "order": [
+            null,
+            "random"
+        ],
+        "cv": [
+            null,
+            3,
+            5,
+            10
+        ]
+    },
+    "ComplementNB": {
+        "alpha": [
+            0.0,
+            0.5,
+            1.0,
+            2.0
+        ],
+        "fit_prior": [
+            true,
+            false
+        ],
+        "norm": [
+            true,
+            false
+        ]
+    },
+    "DecisionTreeClassifier": {
+        "criterion": [
+            "gini",
+            "entropy",
+            "log_loss"
+        ],
+        "splitter": [
+            "best",
+            "random"
+        ],
+        "max_depth": [
+            null,
+            10,
+            20,
+            30,
+            40,
+            50
+        ],
+        "min_samples_split": [
+            2,
+            5,
+            10
+        ],
+        "min_samples_leaf": [
+            1,
+            2,
+            4
+        ],
+        "max_features": [
+            "sqrt",
+            "log2",
+            null
+        ],
+        "max_leaf_nodes": [
+            null,
+            10,
+            20,
+            30,
+            40,
+            50
+        ],
+        "min_impurity_decrease": [
+            0.0,
+            0.01,
+            0.1
+        ],
+        "class_weight": [
+            null,
+            "balanced"
+        ],
+        "ccp_alpha": [
+            0.0,
+            0.01,
+            0.1
+        ]
+    },
+    "DummyClassifier": {
+        "strategy": [
+            "most_frequent",
+            "prior",
+            "stratified",
+            "uniform",
+            "constant"
+        ]
+    },
+    "ExtraTreeClassifier": {
+        "criterion": [
+            "gini",
+            "entropy"
+        ],
+        "splitter": [
+            "random",
+            "best"
+        ],
+        "max_depth": [
+            null,
+            10,
+            20,
+            30,
+            40,
+            50
+        ],
+        "min_samples_split": [
+            2,
+            5,
+            10
+        ],
+        "min_samples_leaf": [
+            1,
+            2,
+            4
+        ],
+        "max_features": [
+            "sqrt",
+            "log2",
+            null
+        ],
+        "max_leaf_nodes": [
+            null,
+            10,
+            50,
+            100,
+            200
+        ],
+        "min_impurity_decrease": [
+            0.0,
+            0.1,
+            0.2
+        ],
+        "class_weight": [
+            null,
+            "balanced"
+        ]
+    },
+    "ExtraTreesClassifier": {
+        "n_estimators": [
+            100,
+            200,
+            300
+        ],
+        "criterion": [
+            "gini",
+            "entropy"
+        ],
+        "max_depth": [
+            10,
+            20,
+            30,
+            null
+        ],
+        "min_samples_split": [
+            2,
+            5,
+            10
+        ],
+        "min_samples_leaf": [
+            1,
+            2,
+            4
+        ],
+        "max_features": [
+            "sqrt",
+            "log2",
+            null
+        ],
+        "bootstrap": [
+            true,
+            false
+        ]
+    },
+    "GaussianNB": {
+        "var_smoothing": [
+            1e-11,
+            1e-10,
+            1e-09,
+            1e-08,
+            1e-07
+        ]
+    },
+    "GaussianProcessClassifier": {
+        "kernel": [
+            "RBF",
+            "Matern",
+            "RationalQuadratic"
+        ],
+        "optimizer": [
+            "fmin_l_bfgs_b"
+        ],
+        "n_restarts_optimizer": [
+            0,
+            1,
+            2,
+            3
+        ],
+        "max_iter_predict": [
+            50,
+            100,
+            200
+        ],
+        "warm_start": [
+            true,
+            false
+        ],
+        "multi_class": [
+            "one_vs_rest",
+            "one_vs_one"
+        ],
+        "n_jobs": [
+            1,
+            -1
+        ]
+    },
+    "GradientBoostingClassifier": {
+        "loss": [
+            "log_loss",
+            "exponential"
+        ],
+        "learning_rate": [
+            0.01,
+            0.1,
+            0.2
+        ],
+        "n_estimators": [
+            50,
+            100,
+            200
+        ],
+        "subsample": [
+            0.8,
+            1.0
+        ],
+        "criterion": [
+            "friedman_mse",
+            "squared_error"
+        ],
+        "min_samples_split": [
+            2,
+            5,
+            10
+        ],
+        "min_samples_leaf": [
+            1,
+            2,
+            4
+        ],
+        "max_depth": [
+            3,
+            5,
+            8
+        ],
+        "min_impurity_decrease": [
+            0.0,
+            0.1
+        ],
+        "max_features": [
+            "sqrt",
+            "log2"
+        ],
+        "max_leaf_nodes": [
+            null,
+            10,
+            20
+        ],
+        "validation_fraction": [
+            0.1,
+            0.2
+        ],
+        "n_iter_no_change": [
+            null,
+            5,
+            10
+        ],
+        "tol": [
+            0.0001,
+            0.001
+        ],
+        "ccp_alpha": [
+            0.0,
+            0.01
+        ]
+    },
+    "HistGradientBoostingClassifier": {
+        "max_iter": [
+            100,
+            200,
+            300
+        ],
+        "learning_rate": [
+            0.01,
+            0.1,
+            0.2
+        ],
+        "max_leaf_nodes": [
+            20,
+            31,
+            40
+        ],
+        "min_samples_leaf": [
+            10,
+            20,
+            30
+        ],
+        "l2_regularization": [
+            0.0,
+            0.1,
+            0.2
+        ],
+        "max_bins": [
+            200,
+            255
+        ],
+        "validation_fraction": [
+            0.1,
+            0.2
+        ],
+        "n_iter_no_change": [
+            5,
+            10,
+            15
+        ],
+        "tol": [
+            1e-07,
+            1e-06
+        ]
+    },
+    "KNeighborsClassifier": {
+        "n_neighbors": [
+            3,
+            5,
+            10,
+            15
+        ],
+        "weights": [
+            "uniform",
+            "distance"
+        ],
+        "algorithm": [
+            "auto",
+            "ball_tree",
+            "kd_tree",
+            "brute"
+        ],
+        "leaf_size": [
+            10,
+            30,
+            50
+        ],
+        "p": [
+            1,
+            2
+        ],
+        "metric": [
+            "minkowski",
+            "euclidean",
+            "manhattan"
+        ]
+    },
+    "LabelPropagation": {
+        "kernel": [
+            "rbf",
+            "knn"
+        ],
+        "gamma": [
+            1,
+            10,
+            20,
+            40
+        ],
+        "n_neighbors": [
+            3,
+            5,
+            7,
+            10
+        ],
+        "max_iter": [
+            500,
+            1000,
+            1500
+        ],
+        "tol": [
+            0.0001,
+            0.001,
+            0.01
+        ],
+        "n_jobs": [
+            -1
+        ]
+    },
+    "LabelSpreading": {
+        "kernel": [
+            "knn",
+            "rbf"
+        ],
+        "gamma": [
+            0.1,
+            1,
+            10,
+            20,
+            40
+        ],
+        "n_neighbors": [
+            3,
+            5,
+            7,
+            10,
+            15
+        ],
+        "alpha": [
+            0.01,
+            0.1,
+            0.2,
+            0.5,
+            0.8
+        ],
+        "max_iter": [
+            10,
+            30,
+            50,
+            100
+        ],
+        "tol": [
+            0.0001,
+            0.001,
+            0.01
+        ],
+        "n_jobs": [
+            -1
+        ]
+    },
+    "LinearDiscriminantAnalysis": {
+        "solver": [
+            "svd",
+            "lsqr",
+            "eigen"
+        ],
+        "shrinkage": [
+            "auto",
+            0.0,
+            0.1,
+            0.2,
+            0.3,
+            0.4,
+            0.5,
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.0
+        ],
+        "n_components": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ]
+    },
+    "LinearSVC": {
+        "penalty": [
+            "l1",
+            "l2"
+        ],
+        "loss": [
+            "hinge",
+            "squared_hinge"
+        ],
+        "dual": [
+            true,
+            false
+        ],
+        "tol": [
+            0.0001,
+            0.001,
+            0.01
+        ],
+        "C": [
+            0.1,
+            1.0,
+            10.0
+        ],
+        "multi_class": [
+            "ovr",
+            "crammer_singer"
+        ],
+        "fit_intercept": [
+            true,
+            false
+        ],
+        "intercept_scaling": [
+            0.5,
+            1,
+            2
+        ],
+        "class_weight": [
+            null,
+            "balanced"
+        ],
+        "max_iter": [
+            500,
+            1000,
+            2000
+        ]
+    },
+    "LogisticRegression": {
+        "penalty": [
+            "l1",
+            "l2",
+            "elasticnet",
+            "none"
+        ],
+        "C": [
+            0.01,
+            0.1,
+            1,
+            10,
+            100
+        ],
+        "solver": [
+            "newton-cg",
+            "lbfgs",
+            "sag",
+            "saga"
+        ],
+        "max_iter": [
+            100,
+            200,
+            300,
+            400,
+            500
+        ],
+        "multi_class": [
+            "auto",
+            "ovr",
+            "multinomial"
+        ],
+        "l1_ratio": [
+            0,
+            0.25,
+            0.5,
+            0.75,
+            1
+        ]
+    },
+    "LogisticRegressionCV": {
+        "solver": [
+            "newton-cg",
+            "lbfgs",
+            "saga"
+        ],
+        "penalty": [
+            "l2",
+            "none"
+        ],
+        "C": [
+            100,
+            10,
+            1.0,
+            0.1,
+            0.01
+        ],
+        "class_weight": [
+            null,
+            "balanced"
+        ],
+        "multi_class": [
+            "auto",
+            "ovr",
+            "multinomial"
+        ],
+        "l1_ratio": [
+            null,
+            0.1,
+            0.5,
+            0.7,
+            0.9
+        ]
+    },
+    "MultiOutputClassifier": "{\"n_jobs\": [1, -1, null]}",
+    "MultinomialNB": {
+        "alpha": [
+            0.1,
+            0.5,
+            1.0,
+            2.0
+        ],
+        "fit_prior": [
+            true,
+            false
+        ]
+    },
+    "NearestCentroid": {
+        "metric": [
+            "euclidean",
+            "manhattan"
+        ],
+        "shrink_threshold": [
+            null,
+            0.1,
+            0.2,
+            0.5,
+            1.0
+        ]
+    },
+    "NuSVC": {
+        "nu": [
+            0.1,
+            0.25,
+            0.5,
+            0.75
+        ],
+        "kernel": [
+            "linear",
+            "poly",
+            "rbf",
+            "sigmoid"
+        ],
+        "degree": [
+            2,
+            3,
+            4,
+            5
+        ],
+        "gamma": [
+            0.001,
+            0.01,
+            0.1,
+            1,
+            "scale"
+        ],
+        "coef0": [
+            0.0,
+            0.5,
+            1.0
+        ],
+        "shrinking": [
+            true,
+            false
+        ],
+        "probability": [
+            true,
+            false
+        ],
+        "tol": [
+            0.0001,
+            0.001,
+            0.01
+        ],
+        "class_weight": [
+            "balanced",
+            null
+        ],
+        "decision_function_shape": [
+            "ovo",
+            "ovr"
+        ],
+        "break_ties": [
+            true,
+            false
+        ]
+    },
+    "OneVsOneClassifier": {
+        "estimator": [
+            "LinearSVC",
+            "LogisticRegression"
+        ],
+        "n_jobs": [
+            1,
+            -1,
+            2,
+            4
+        ]
+    },
+    "OneVsRestClassifier": {
+        "n_jobs": [
+            -1,
+            1
+        ],
+        "verbose": [
+            0,
+            1,
+            10
+        ]
+    },
+    "OutputCodeClassifier": {
+        "estimator": [
+            "RandomForestClassifier",
+            "SVC"
+        ],
+        "code_size": [
+            0.5,
+            1,
+            1.5,
+            2
+        ],
+        "n_jobs": [
+            -1,
+            1
+        ]
+    },
+    "PassiveAggressiveClassifier": {
+        "C": [
+            0.01,
+            0.1,
+            1,
+            10
+        ],
+        "max_iter": [
+            500,
+            1000,
+            1500,
+            2000
+        ],
+        "tol": [
+            0.0001,
+            0.001,
+            0.01
+        ],
+        "fit_intercept": [
+            true,
+            false
+        ],
+        "loss": [
+            "hinge",
+            "squared_hinge"
+        ],
+        "shuffle": [
+            true,
+            false
+        ],
+        "early_stopping": [
+            true,
+            false
+        ],
+        "validation_fraction": [
+            0.1,
+            0.2
+        ],
+        "n_iter_no_change": [
+            3,
+            5,
+            7
+        ],
+        "average": [
+            false,
+            true,
+            10
+        ]
+    },
+    "Perceptron": {
+        "penalty": [
+            "l2",
+            "l1",
+            "elasticnet"
+        ],
+        "alpha": [
+            0.0001,
+            0.001,
+            0.01,
+            0.1
+        ],
+        "l1_ratio": [
+            0.15,
+            0.25,
+            0.5,
+            0.75,
+            1
+        ],
+        "fit_intercept": [
+            true,
+            false
+        ],
+        "max_iter": [
+            500,
+            1000,
+            1500,
+            2000
+        ],
+        "tol": [
+            0.001,
+            0.0001,
+            1e-05
+        ],
+        "shuffle": [
+            true,
+            false
+        ],
+        "eta0": [
+            1,
+            0.1,
+            0.01,
+            0.001
+        ],
+        "early_stopping": [
+            true,
+            false
+        ],
+        "validation_fraction": [
+            0.1,
+            0.2,
+            0.3
+        ],
+        "n_iter_no_change": [
+            5,
+            10,
+            15
+        ],
+        "class_weight": [
+            null,
+            "balanced"
+        ],
+        "warm_start": [
+            true,
+            false
+        ]
+    },
+    "QuadraticDiscriminantAnalysis": {
+        "store_covariance": [
+            true,
+            false
+        ],
+        "reg_param": [
+            0.0,
+            0.1,
+            0.2,
+            0.3,
+            0.4,
+            0.5,
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.0
+        ],
+        "tol": [
+            0.0001,
+            0.001,
+            0.01,
+            0.1
+        ]
+    },
+    "RadiusNeighborsClassifier": {
+        "radius": [
+            0.5,
+            1.0,
+            1.5,
+            2.0
+        ],
+        "weights": [
+            "uniform",
+            "distance"
+        ],
+        "algorithm": [
+            "auto",
+            "ball_tree",
+            "kd_tree",
+            "brute"
+        ],
+        "leaf_size": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "p": [
+            1,
+            2
+        ],
+        "outlier_label": [
+            "most_frequent"
+        ]
+    },
+    "RandomForestClassifier": {
+        "n_estimators": [
+            100,
+            200,
+            300
+        ],
+        "criterion": [
+            "gini",
+            "entropy"
+        ],
+        "max_depth": [
+            10,
+            20,
+            30,
+            null
+        ],
+        "min_samples_split": [
+            2,
+            5,
+            10
+        ],
+        "min_samples_leaf": [
+            1,
+            2,
+            4
+        ],
+        "max_features": [
+            "sqrt",
+            "log2"
+        ],
+        "bootstrap": [
+            true,
+            false
+        ]
+    },
+    "RidgeClassifier": {
+        "alpha": [
+            0.1,
+            1.0,
+            10.0
+        ],
+        "fit_intercept": [
+            true,
+            false
+        ],
+        "max_iter": [
+            null,
+            1000,
+            5000
+        ],
+        "tol": [
+            0.0001,
+            0.001
+        ],
+        "class_weight": [
+            null,
+            "balanced"
+        ],
+        "solver": [
+            "auto",
+            "sparse_cg",
+            "sag",
+            "saga",
+            "lbfgs"
+        ]
+    },
+    "RidgeClassifierCV": {
+        "alphas": [
+            0.001,
+            0.01,
+            0.1,
+            1,
+            10,
+            100
+        ],
+        "fit_intercept": [
+            true,
+            false
+        ],
+        "scoring": [
+            "accuracy",
+            "f1"
+        ],
+        "cv": [
+            5,
+            10
+        ],
+        "class_weight": [
+            null,
+            "balanced"
+        ]
+    },
+    "SGDClassifier": {
+        "loss": [
+            "hinge",
+            "log_loss",
+            "modified_huber",
+            "squared_hinge",
+            "perceptron"
+        ],
+        "penalty": [
+            "l2",
+            "l1",
+            "elasticnet"
+        ],
+        "alpha": [
+            0.0001,
+            0.001,
+            0.01
+        ],
+        "l1_ratio": [
+            0,
+            0.15,
+            0.5,
+            1
+        ],
+        "max_iter": [
+            500,
+            1000,
+            2000
+        ],
+        "tol": [
+            0.0001,
+            0.001,
+            0.01
+        ],
+        "learning_rate": [
+            "optimal",
+            "invscaling",
+            "adaptive"
+        ],
+        "eta0": [
+            0.01,
+            0.1,
+            0.5
+        ],
+        "power_t": [
+            0.2,
+            0.5,
+            0.8
+        ],
+        "early_stopping": [
+            true,
+            false
+        ],
+        "validation_fraction": [
+            0.1,
+            0.2
+        ],
+        "n_iter_no_change": [
+            3,
+            5,
+            10
+        ],
+        "class_weight": [
+            null,
+            "balanced"
+        ]
+    },
+    "SVC": {
+        "C": [
+            0.1,
+            1,
+            10,
+            100
+        ],
+        "kernel": [
+            "linear",
+            "poly",
+            "rbf",
+            "sigmoid"
+        ],
+        "degree": [
+            2,
+            3,
+            4,
+            5
+        ],
+        "gamma": [
+            "scale",
+            "auto",
+            0.01,
+            0.1,
+            1
+        ],
+        "coef0": [
+            0.0,
+            0.5,
+            1.0
+        ],
+        "shrinking": [
+            true,
+            false
+        ],
+        "probability": [
+            true,
+            false
+        ],
+        "tol": [
+            0.0001,
+            0.001,
+            0.01
+        ],
+        "class_weight": [
+            null,
+            "balanced"
+        ],
+        "decision_function_shape": [
+            "ovo",
+            "ovr"
+        ]
+    },
+    "StackingClassifier": {
+        "cv": [
+            5,
+            10
+        ],
+        "stack_method": [
+            "auto",
+            "predict_proba",
+            "decision_function",
+            "predict"
+        ],
+        "passthrough": [
+            true,
+            false
+        ]
+    },
+    "VotingClassifier": {
+        "voting": [
+            "hard",
+            "soft"
+        ],
+        "weights": [
+            [
+                0.5,
+                0.5,
+                0.5
+            ],
+            [
+                1,
+                1,
+                1
+            ],
+            [
+                2,
+                1,
+                1
+            ]
+        ],
+        "flatten_transform": [
+            true,
+            false
+        ]
+    },
+    "XGBClassifier": {
+        "objective": [
+            "binary:logistic",
+            "multi:softprob"
+        ],
+        "n_estimators": [
+            100,
+            200,
+            300
+        ],
+        "learning_rate": [
+            0.01,
+            0.1,
+            0.2
+        ],
+        "max_depth": [
+            3,
+            6,
+            9
+        ],
+        "min_child_weight": [
+            1,
+            3,
+            5
+        ],
+        "subsample": [
+            0.6,
+            0.8,
+            1.0
+        ],
+        "colsample_bytree": [
+            0.6,
+            0.8,
+            1.0
+        ]
+    },
+    "LGBMClassifier": {
+        "boosting_type": [
+            "gbdt",
+            "dart",
+            "goss"
+        ],
+        "num_leaves": [
+            31,
+            62,
+            127,
+            255
+        ],
+        "max_depth": [
+            -1,
+            3,
+            7,
+            15
+        ],
+        "learning_rate": [
+            0.01,
+            0.05,
+            0.1
+        ],
+        "n_estimators": [
+            50,
+            100,
+            200
+        ],
+        "subsample_for_bin": [
+            200000,
+            500000
+        ],
+        "min_split_gain": [
+            0.0,
+            0.1,
+            0.5
+        ],
+        "min_child_weight": [
+            0.001,
+            0.01,
+            0.1
+        ],
+        "min_child_samples": [
+            10,
+            20,
+            30
+        ],
+        "subsample": [
+            0.8,
+            1.0
+        ],
+        "subsample_freq": [
+            0,
+            1,
+            5
+        ],
+        "colsample_bytree": [
+            0.8,
+            1.0
+        ],
+        "reg_alpha": [
+            0.0,
+            0.5,
+            1.0
+        ],
+        "reg_lambda": [
+            0.0,
+            0.5,
+            1.0
+        ],
+        "objective": [
+            "binary",
+            "multiclass"
+        ],
+        "metric": [
+            "binary_logloss",
+            "multi_error",
+            "auc"
+        ]
+    }
+}

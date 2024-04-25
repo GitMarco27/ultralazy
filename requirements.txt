@@ -1,0 +1,15 @@
+openai
+scikit-learn
+tqdm
+xgboost
+lightgbm
+numpy
+pandas
+openpyxl
+
+# --- dev --- #
+black
+isort
+mypy
+jupyterlab
+pytest
