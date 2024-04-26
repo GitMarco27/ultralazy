@@ -12,10 +12,7 @@ def read_requirements():
 setup(
     name="ultralazy",
     version="0.0.1",
-    packages=[
-        "ultralazy",
-        "ultralazy.utils"
-    ],
+    packages=["ultralazy", "ultralazy.utils"],
     url="https://github.com/GitMarco27/ultralazy.git",
     license="MIT",
     author="Marco Sanguineti",

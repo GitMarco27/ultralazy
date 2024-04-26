@@ -52,20 +52,21 @@ class UltraLazyClassifier:
         source_hp_path: Optional[str] = None,
         logs_path: Optional[str] = None,
         source_hp_dict: Optional[dict] = None,
+        n_jobs: int = -1,
     ):
 
         # Assertions
         if source_hp_path is not None and source_hp_dict is not None:
-            raise ValueError("Both source_hp_path and source_hp_dict are provided."
-                             "You must provide only"
-                             "one of them.")
-
+            raise ValueError(
+                "Both source_hp_path and source_hp_dict are provided."
+                "You must provide only"
+                "one of them."
+            )
 
         if cross_validation and (source_hp_path is None and source_hp_dict is None):
             raise ValueError(
                 "When cross_validation is set to True, source_hp_path or source_hp_dict must be provided."
             )
-
 
         if logs_path is None:
             print("Warning: logs path is not provided. No logs will be written to file")
@@ -85,6 +86,8 @@ class UltraLazyClassifier:
         self.cv_verbose = cv_verbose
 
         self.logs_path = logs_path
+
+        self.n_jobs = n_jobs
 
         if source_hp_path is not None:
             with open(source_hp_path, "r", encoding="utf-8") as f:
@@ -201,11 +204,16 @@ class UltraLazyClassifier:
                 if "random_state" in model().get_params().keys():
                     pipe = Pipeline(
                         steps=[
-                            ("classifier", model(random_state=self.random_state)),
+                            (
+                                "classifier",
+                                model(
+                                    random_state=self.random_state, n_jobs=self.n_jobs
+                                ),
+                            ),
                         ]
                     )
                 else:
-                    pipe = Pipeline(steps=[("classifier", model())])
+                    pipe = Pipeline(steps=[("classifier", model(n_jobs=self.n_jobs))])
 
                 if not self.cross_validation:
                     pipe.fit(x_train, y_train)
@@ -229,6 +237,7 @@ class UltraLazyClassifier:
                         cv=stratified_kfold,
                         verbose=self.cv_verbose,
                         scoring=f1_scorer,
+                        n_jobs=self.n_jobs,
                     )
 
                     # Perform grid search
@@ -245,6 +254,7 @@ class UltraLazyClassifier:
                                         if self.random_state is not None
                                         else None
                                     ),
+                                    n_jobs=self.n_jobs,
                                 ),
                             ),
                         ]
