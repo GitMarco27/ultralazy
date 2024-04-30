@@ -201,19 +201,38 @@ class UltraLazyClassifier:
 
             start = time.time()
             try:
+
                 if "random_state" in model().get_params().keys():
-                    pipe = Pipeline(
-                        steps=[
-                            (
-                                "classifier",
-                                model(
-                                    random_state=self.random_state, n_jobs=self.n_jobs
+                    if "n_jobs" in model().get_params().keys():
+                        pipe = Pipeline(
+                            steps=[
+                                (
+                                    "classifier",
+                                    model(
+                                        random_state=self.random_state,
+                                        n_jobs=self.n_jobs,
+                                    ),
                                 ),
-                            ),
-                        ]
-                    )
+                            ]
+                        )
+                    else:
+                        pipe = Pipeline(
+                            steps=[
+                                (
+                                    "classifier",
+                                    model(
+                                        random_state=self.random_state,
+                                    ),
+                                ),
+                            ]
+                        )
                 else:
-                    pipe = Pipeline(steps=[("classifier", model(n_jobs=self.n_jobs))])
+                    if "n_jobs" in model().get_params().keys():
+                        pipe = Pipeline(
+                            steps=[("classifier", model(n_jobs=self.n_jobs))]
+                        )
+                    else:
+                        pipe = Pipeline(steps=[("classifier", model())])
 
                 if not self.cross_validation:
                     pipe.fit(x_train, y_train)
@@ -243,18 +262,21 @@ class UltraLazyClassifier:
                     # Perform grid search
                     grid_search.fit(x_train, y_train)
 
+                    params = grid_search.best_params_
+                    if "n_jobs" in model().get_params().keys():
+                        params["n_jobs"] = self.n_jobs
+
                     pipe = Pipeline(
                         steps=[
                             (
                                 "classifier",
                                 model(
-                                    **grid_search.best_params_,
+                                    **params,
                                     random_state=(
                                         self.random_state
                                         if self.random_state is not None
                                         else None
                                     ),
-                                    n_jobs=self.n_jobs,
                                 ),
                             ),
                         ]
@@ -334,9 +356,9 @@ class UltraLazyClassifier:
                             "Model": names,
                             "Accuracy": accuracy_list,
                             "Balanced Accuracy": b_accuracy_list,
-                            "ROC AUC": roc_auc,
+                            "ROC AUC": roc_auc_list,
                             "F1 Score": f1_list,
-                            self.custom_metric.__name__: custom_metric,
+                            self.custom_metric.__name__: custom_metric_list,
                             "Time Taken": times,
                         }
                     )
@@ -350,7 +372,7 @@ class UltraLazyClassifier:
                     # Dump scores as xlsx
                     scores.to_excel(os.path.join(run_path, "scores.xlsx"))
 
-                    if self.cross_validation is not None:
+                    if self.cross_validation:
                         # Dump cv_hp as json
                         with open(
                             os.path.join(run_path, f"{name}_cv_hp.json"),
@@ -360,7 +382,10 @@ class UltraLazyClassifier:
                             json.dump(cv_hp, file, indent=4)
 
             except Exception:
-                print(name + " model failed to execute")
-                traceback.print_exc()
+                if self.verbose > 0:
+                    print(name + " model failed to execute")
+                    traceback.print_exc()
 
+        print(f"---- {self.__class__.__name__}: finished")
+        print(f"Successfully trained {scores.shape[0]} / {len(self.classifiers)}")
         return scores
